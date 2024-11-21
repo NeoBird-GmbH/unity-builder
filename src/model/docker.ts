@@ -63,6 +63,7 @@ class Docker {
             ${ImageEnvironmentFactory.getEnvVarString(parameters, additionalVariables)} \
             --env GITHUB_WORKSPACE=${dockerWorkspacePath} \
             --env GIT_CONFIG_EXTENSIONS \
+            --env UPM_USER_CONFIG_FILE="/root/.upmconfig.toml" \
             ${gitPrivateToken ? `--env GIT_PRIVATE_TOKEN="${gitPrivateToken}"` : ''} \
             ${sshAgent ? '--env SSH_AUTH_SOCK=/ssh-agent' : ''} \
             --volume "${githubHome}":"/root:z" \
